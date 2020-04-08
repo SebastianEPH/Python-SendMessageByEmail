@@ -15,6 +15,6 @@ emailTo   = "";         # Email receptor            # CorreoQueRecibaElMensaje@h
 
 
 # bucle infinito para enviar el correo 
-while True;
+while True:
     print("Resultado de Envío: "+str(SendGmail(emailUser,emailPass,emailTo,message)));
 
