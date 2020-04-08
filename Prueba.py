@@ -14,7 +14,7 @@ emailTo   = "";         # Email receptor            # CorreoQueRecibaElMensaje@h
 # Entrar a este link-.. (link no habilitado por ahora), puedes buscar por google
 
 
+# bucle infinito para enviar el correo 
+while True;
+    print("Resultado de Envío: "+str(SendGmail(emailUser,emailPass,emailTo,message)));
 
-
-# Muestra en consola: False = si hubo un error // True = Si todo fue correcto
-print("Resultado de Envío: "+str(SendGmail(emailUser,emailPass,emailTo,message)));

@@ -31,26 +31,28 @@ def SendGmail(emailUser,emailPass,emailTo,message):
 
 def TestSend (emailUser,emailPass):
     try:
-
         txt = MIMEMultipart();
         # Enviar Desde
         txt["From"] = emailUser;
         # a
-        txt["To"] = "Hola@gmail.com";
-        
-        #txt["Subject"] = "Report"+  str(datetime.datetime.now().date());
-        #txt.attach(MIMEText(message,"plain"));
-
+        txt["To"] = "hola@gmail.com";   # Correo de la persona a la cual se le enviará el mensaje 
+        txt["Subject"] = "Texto Encabezado"+  str(datetime.datetime.now().now());
+        txt.attach(MIMEText(" Escribe el texto que quieres enviar aquí  ","plain"));
         # Conexion al server de Google
         server = smtplib.SMTP('smtp.gmail.com: 587');
         # Inicia Conexion
         server.starttls();
         # Inicia sesión [User : emailPass] = google.com
         server.login(txt["From"], emailPass);
+        # Envía Mensaje 
+        server.sendmail(txt["From"], txt["To"], txt.as_string());
+        # Cierra Conexión al servidor
         server.quit();
         # En caso de Envio Exitoso , retorna un True
+        print("El Correo se envió correctamente");
         return True;
     except:
+        print("Error de envio");
         return False;
 
 
